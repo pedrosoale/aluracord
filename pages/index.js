@@ -32,7 +32,7 @@ function GlobalStyle() {
 
 function Titulo(props) {
 
-  const Tag = props.tag || h1;
+  const Tag = props.tag || 'h1';
   return (
     <>
       <h1>{props.children}</h1>
@@ -60,31 +60,40 @@ function Titulo(props) {
 //export default HomePage;
 
 export default function PaginaInicial() {
-  const username = 'peas';
+  const username = 'pedrosoale';
 
   return (
     <>
       <GlobalStyle />
       <Box
         styleSheet={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
-          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: appConfig.theme.colors.primary[100],
+          backgroundImage:
+            "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm2479hQNPJuUid0AfIzHafPk510XV_ClNEw&usqp=CAU)",
+          backgroundPosition: "top left",
+          backgroundRepeat: "repeat",
+          backgroundSize: "20%",
+          backgroundBlendMode: "multiply",
         }}
       >
         <Box
           styleSheet={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
             flexDirection: {
-              xs: 'column',
-              sm: 'row',
+              xs: "column",
+              sm: "row",
             },
-            width: '100%', maxWidth: '700px',
-            borderRadius: '5px', padding: '32px', margin: '16px',
-            boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
+            width: "100%",
+            maxWidth: "700px",
+            borderRadius: "5px",
+            padding: "32px",
+            margin: "16px",
+            boxShadow: "0 2px 10px 0 rgb(0 0 0 / 20%)",
             backgroundColor: appConfig.theme.colors.neutrals[700],
           }}
         >
@@ -92,12 +101,23 @@ export default function PaginaInicial() {
           <Box
             as="form"
             styleSheet={{
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: { xs: "100%", sm: "50%" },
+              textAlign: "center",
+              marginBottom: "32px",
             }}
           >
             <Titulo tag="h2">Boas vindas de volta!</Titulo>
-            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+            <Text
+              variant="body3"
+              styleSheet={{
+                marginBottom: "32px",
+                color: appConfig.theme.colors.neutrals[300],
+              }}
+            >
               {appConfig.name}
             </Text>
 
@@ -113,8 +133,8 @@ export default function PaginaInicial() {
               }}
             />
             <Button
-              type='submit'
-              label='Entrar'
+              type="submit"
+              label="Entrar"
               fullWidth
               buttonColors={{
                 contrastColor: appConfig.theme.colors.neutrals["000"],
@@ -129,23 +149,23 @@ export default function PaginaInicial() {
           {/* Photo Area */}
           <Box
             styleSheet={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              maxWidth: '200px',
-              padding: '16px',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              maxWidth: "200px",
+              padding: "16px",
               backgroundColor: appConfig.theme.colors.neutrals[800],
-              border: '1px solid',
+              border: "1px solid",
               borderColor: appConfig.theme.colors.neutrals[999],
-              borderRadius: '10px',
+              borderRadius: "10px",
               flex: 1,
-              minHeight: '240px',
+              minHeight: "240px",
             }}
           >
             <Image
               styleSheet={{
-                borderRadius: '50%',
-                marginBottom: '16px',
+                borderRadius: "50%",
+                marginBottom: "16px",
               }}
               src={`https://github.com/${username}.png`}
             />
@@ -154,8 +174,8 @@ export default function PaginaInicial() {
               styleSheet={{
                 color: appConfig.theme.colors.neutrals[200],
                 backgroundColor: appConfig.theme.colors.neutrals[900],
-                padding: '3px 10px',
-                borderRadius: '1000px'
+                padding: "3px 10px",
+                borderRadius: "1000px",
               }}
             >
               {username}
