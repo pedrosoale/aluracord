@@ -70,12 +70,12 @@ export default function PaginaInicial() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: appConfig.theme.colors.primary[100],
+          backgroundColor: appConfig.theme.colors.primary[200],
           backgroundImage:
-            "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm2479hQNPJuUid0AfIzHafPk510XV_ClNEw&usqp=CAU)",
-          backgroundPosition: "top left",
-          backgroundRepeat: "repeat",
-          backgroundSize: "20%",
+            "url(https://sep-bucket-prod.s3.amazonaws.com/wp-content/uploads/2022/01/podio-copinha-palmeiras-2022.jpg)",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           backgroundBlendMode: "multiply",
         }}
       >
@@ -110,7 +110,7 @@ export default function PaginaInicial() {
               marginBottom: "32px",
             }}
           >
-            <Titulo tag="h2">Boas vindas de volta!</Titulo>
+            <Titulo tag="h2">O maior do Brasil!</Titulo>
             <Text
               variant="body3"
               styleSheet={{
