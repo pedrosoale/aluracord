@@ -2,3 +2,7 @@ Aula 2
     Compreender conceitualmente a implementação de: useState, useRouter, onSubmit, onChange
     Desafio 1: se o campo tiver menos de dois caracteres desabilitar o campo e não mostrar a imagem.
     Desafio 2: poder usar imagens de outras fontes.
+
+Aula 3
+    Desafio 1: criar um botão com o mesmo efeito do onKeyPress
+    Desafio 2: inserir um botão para apagar mensagem
