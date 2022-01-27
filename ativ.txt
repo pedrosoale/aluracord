@@ -6,3 +6,8 @@ Aula 2
 Aula 3
     Desafio 1: criar um botão com o mesmo efeito do onKeyPress
     Desafio 2: inserir um botão para apagar mensagem
+
+Aula 4
+    Desafio 1: fazer o loading para enquanto carrega mensagem
+    Desafio 2: fazer um mouse over na imagem da pessoa, passando o mause pela imagem da pessoa aumentar a imagem e mostrar mais informações.
+    Desafio 3: botão para manda pull, imagem, anexo

@@ -1,10 +1,28 @@
 import { Box, Text, TextField, Image, Button } from "@skynexui/components";
 import React from "react";
 import appConfig from "../config.json";
+import { createClient } from "@supabase/supabase-js";
+
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMwNjM2OSwiZXhwIjoxOTU4ODgyMzY5fQ.uGKShrCvaQFZnLqJNURuIRWlcMeawnm0aAYEJwFFnCk";
+const SUPABASE_URL = "https://rhczvfirkvxgmngpjqez.supabase.co";
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export default function ChatPage() {
   const [mensagem, setMensagem] = React.useState("");
   const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
+
+  React.useEffect(() => {
+    supabaseClient
+      .from("mensagens")
+      .select("*")
+      .order('id', {ascending: false})
+      .then(({ data }) => {
+        console.log("Dados da consulta: ", data);
+        setListaDeMensagens(data);
+      });
+  }, []);
+
   /*
     // Usuário
     - Usuário digita no campo textarea
@@ -18,14 +36,19 @@ export default function ChatPage() {
   */
   function handleNovaMensagem(novaMensagem) {
     const mensagem = {
-      id: listaDeMensagens.length + 1,
-      de: "ale",
+      //id: listaDeMensagens.length + 1,
+      de: "pedrosoale",
       texto: novaMensagem,
     };
-    setListaDeMensagens([
-        mensagem,
-        ...listaDeMensagens, 
-    ]);
+
+    supabaseClient
+      .from("mensagens")
+      .insert([mensagem])
+      .then(({ data }) => {
+        console.log("Criando mensagem: ", data);
+        setListaDeMensagens([data[0], ...listaDeMensagens]);
+      });
+
     setMensagem("");
   }
   return (
@@ -34,8 +57,9 @@ export default function ChatPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: appConfig.theme.colors.primary[500],
-        backgroundImage: `url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)`,
+        backgroundColor: appConfig.theme.colors.primary[100],
+        backgroundImage: `url(https://live.staticflickr.com/65535/51711160142_12c756318b_h.jpg)`,
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundBlendMode: "multiply",
@@ -49,7 +73,8 @@ export default function ChatPage() {
           flex: 1,
           boxShadow: "0 2px 10px 0 rgb(0 0 0 / 20%)",
           borderRadius: "5px",
-          backgroundColor: appConfig.theme.colors.neutrals[700],
+          //backgroundColor: appConfig.theme.colors.neutrals[700],
+          backgroundColor: "#000000c0",
           height: "100%",
           maxWidth: "95%",
           maxHeight: "95vh",
@@ -182,7 +207,7 @@ function MessageList(props) {
                   display: "inline-block",
                   marginRight: "8px",
                 }}
-                src={`https://github.com/pedrosoale.png`}
+                src={`https://github.com/${mensagem.de}.png`}
               />
               <Text tag="strong">{mensagem.de}</Text>
               <Text
