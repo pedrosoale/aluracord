@@ -1,17 +1,16 @@
-import { Box, Button, Text, TextField, Image } from '@skynexui/components'
-import React from 'react';
-import { useRouter } from 'next/router'
-import appConfig from '../config.json'
+import { Box, Button, Text, TextField, Image } from "@skynexui/components";
+import React from "react";
+import { useRouter } from "next/router";
+import appConfig from "../config.json";
 
 function Titulo(props) {
-
-  const Tag = props.tag || 'h1';
+  const Tag = props.tag || "h1";
   return (
     <>
       <h1>{props.children}</h1>
       <style jsx>{`
         h1 {
-          color: ${appConfig.theme.colors.neutrals['000']};
+          color: ${appConfig.theme.colors.neutrals["000"]};
           font-size: 24px;
           font-weight: 600;
         }
@@ -34,8 +33,8 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
   //const username = 'pedrosoale';
-  const [username, setUsername] = React.useState('pedrosoale')
-  const roteamento = useRouter()
+  const [username, setUsername] = React.useState("");
+  const roteamento = useRouter();
 
   return (
     <>
@@ -76,9 +75,9 @@ export default function PaginaInicial() {
           <Box
             as="form"
             onSubmit={function (infosDoEvento) {
-              infosDoEvento.preventDefault()
-              console.log('Alguem submeteu o form')
-              roteamento.push(`/chat?username=${username}`)
+              infosDoEvento.preventDefault();
+              console.log("Alguem submeteu o form");
+              roteamento.push(`/chat?username=${username}`);
               //window.location.href = '/chat'
             }}
             styleSheet={{
@@ -117,12 +116,15 @@ export default function PaginaInicial() {
             <TextField
               value={username}
               onChange={function handler(event) {
-                console.log("usuario digitou", event.target.value)
+                console.log("usuario digitou", event.target.value);
                 // Onde está o valor?
-                const valor = event.target.value
+                setUsername() // limpa o estado username
+                const valor = event.target.value;
                 // Trocar o valor da variável
                 // através do React e avise quem precisa
-                setUsername(valor)
+                if(valor.length > 2){
+                  setUsername(valor);
+                }
               }}
               fullWidth
               textFieldColors={{
