@@ -1,13 +1,59 @@
+Aula 1
+    React - https://pt-br.reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains
+    Mario Souto - Strategy Pattern - https://www.youtube.com/watch?v=S-jqd6WZ7M0
+    Mario Souto - Pegando dados de uma API com React - https://www.youtube.com/watch?v=85vJXFpXLQw
+    Mario Souto - O sistema de rotas do NextJS, principais dúvidas - https://www.youtube.com/watch?v=-kVnp3fg-v4
+    Mario Souto - Linter - https://www.youtube.com/watch?v=yMRSDdifGW8
+    Mario Souto - Centralizar conteúdo na tela - https://www.youtube.com/watch?v=Cu-HP-gvggg
+    CSS Grid Garden - https://cssgridgarden.com/
+    Flexbox Froggy - https://flexboxfroggy.com/
+    Mario Souto - Storybook na prática - https://www.youtube.com/watch?v=R41_Qedrzik&t=7s
+    Mario Souto - Configurando ambiente JavaScript/NodeJS/Yarn - https://www.youtube.com/watch?v=GIz71YGzwP4
+    Documentação interativa com Storybook do SkynexUI - https://storybook.skynexui.dev/?path=/story/components-box--box-component
+
 Aula 2
     Compreender conceitualmente a implementação de: useState, useRouter, onSubmit, onChange
     Desafio 1: se o campo tiver menos de dois caracteres desabilitar o campo e não mostrar a imagem.
     Desafio 2: poder usar imagens de outras fontes.
 
+    Aprender forEach e map - Mario Souto - https://www.youtube.com/watch?v=JbzcLKiTThk
+    Mario Souto - Validando Formulários com React - https://www.youtube.com/watch?v=cMq6k7ymv2s
+    Como fazer AJAX? E pegar os dados da API do GitHub - https://www.youtube.com/watch?v=85vJXFpXLQw
+    Mario Souto - Github Pro + Eslint - https://www.youtube.com/watch?v=yMRSDdifGW8&t=2s
+    Criando Flappy Bird com JavaScript - Mario Souto - https://www.youtube.com/watch?v=jOAU81jdi-c&list=PLTcmLKdIkOWmeNferJ292VYKBXydGeDej
+
+
 Aula 3
     Desafio 1: criar um botão com o mesmo efeito do onKeyPress
     Desafio 2: inserir um botão para apagar mensagem
+
+    Template base da página do Chat usado no começo da aula - https://gist.github.com/omariosouto/8517c711f36770b73371185e4aed92d6
+    Código da Aula completo com tudo o que fizemos na aula - https://github.com/alura-challenges/aluracord-matrix/pull/4/files
+    Lembre-se de se inscrever no canal do DevSoutinho - https://www.youtube.com/DevSoutinho
+    Dar uma star no repositório da imersão - https://github.com/alura-challenges/aluracord-matrix
+    Dar uma star no repositório da biblioteca @skynexui/components - https://github.com/skynexui/components
 
 Aula 4
     Desafio 1: fazer o loading para enquanto carrega mensagem
     Desafio 2: fazer um mouse over na imagem da pessoa, passando o mause pela imagem da pessoa aumentar a imagem e mostrar mais informações.
     Desafio 3: botão para manda pull, imagem, anexo
+
+    Figma com o design que desenvolvemos na tela - https://www.figma.com/file/xHF0n0qxiE2rqjqAILiBUB/Alurakut?node-id=58%3A0
+    Supabase - https://supabase.com/
+    Código que alteramos na aula arquivo por arquivo - https://github.com/alura-challenges/aluracord-matrix/pull/5/files
+    Mario Souto - Latência - https://www.youtube.com/watch?v=x4eyf5L5caY
+    Mario Souto - Como fazer AJAX - https://medium.com/@omariosouto/entendendo-como-fazer-ajax-com-a-fetchapi-977ff20da3c6
+    Http Status Dogs - https://httpstatusdogs.com/
+    API do GitHub - https://api.github.com/users/omariosouto
+    Dev em T - https://www.alura.com.br/dev-em-t
+    Pacote de stickers da Alura - https://www.alura.com.br/artigos/stickers-dev-aluraverso-whatsapp-telegram
+
+Aula 5
+
+    Código com as alterações feitas na aula - https://github.com/alura-challenges/aluracord-matrix/pull/7/files
+    Stickers do AluraVerso! - https://www.alura.com.br/artigos/stickers-dev-aluraverso-whatsapp-telegram
+    Componente ButtonSendSticker - https://github.com/alura-challenges/aluracord-matrix/blob/aula05/src/components/ButtonSendSticker.js
+    Dicas de programação do DevSoutinho - https://www.youtube.com/playlist?list=PLTcmLKdIkOWkJY8LJXs1GDqBnxCGsExBO
+    Como criar um jogo do ZERO! - https://www.youtube.com/playlist?list=PLTcmLKdIkOWmeNferJ292VYKBXydGeDej
+    DevSoutinho - Dicas de React e Web em geral - https://www.youtube.com/playlist?list=PLTcmLKdIkOWkVld6KvLJbUCPIOjqLg9cr
+    Supabase - https://supabase.com/

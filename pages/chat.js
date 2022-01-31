@@ -4,6 +4,7 @@ import appConfig from "../config.json";
 import { useRouter } from "next/router";
 import { createClient } from "@supabase/supabase-js";
 import { ButtonSendSticker } from "../src/components/ButtonSendSticker";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMwNjM2OSwiZXhwIjoxOTU4ODgyMzY5fQ.uGKShrCvaQFZnLqJNURuIRWlcMeawnm0aAYEJwFFnCk";
@@ -22,7 +23,7 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
 export default function ChatPage() {
   const roteamento = useRouter();
   const usuarioLogado = roteamento.query.username;
-  const [mensagem, setMensagem] = React.useState("");
+  const [mensagem, setMensagem] = React.useState();
   const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
 
   React.useEffect(() => {
@@ -167,6 +168,23 @@ export default function ChatPage() {
                 color: appConfig.theme.colors.neutrals[200],
               }}
             />
+
+            <Button
+              onClick={() => {
+                if (mensagem.length > 0) {
+                  handleNovaMensagem(mensagem);
+                }
+              }}
+              type="button"
+              label="Enviar"
+              buttonColors={{
+                contrastColor: appConfig.theme.colors.neutrals["000"],
+                mainColor: appConfig.theme.colors.primary[500],
+                mainColorLight: appConfig.theme.colors.primary[400],
+                mainColorStrong: appConfig.theme.colors.primary[600],
+              }}
+            />
+
             {/* Callback */}
             <ButtonSendSticker
               onStickerClick={(sticker) => {
@@ -262,6 +280,30 @@ function MessageList(props) {
               >
                 {new Date().toLocaleDateString()}
               </Text>
+
+              <Button
+                size="xs"
+                variant="tertiary"
+                label="X"
+                buttonColors={{
+                  contrastColor: appConfig.theme.colors.neutrals["000"],
+                  mainColor: appConfig.theme.colors.primary[500],
+                  mainColorLight: appConfig.theme.colors.primary[400],
+                  mainColorStrong: appConfig.theme.colors.primary[600],
+                }}
+                onClick={() => {
+                  console.log({ mensagem });
+                  supabaseClient
+                    .from("mensagens")
+                    .delete()
+                    .match({ id: mensagem.id })
+                    .then(() => {
+                      const index = listaDeMensagens.indexOf(mensagem);
+                      listaDeMensagens.splice(index, 1);
+                      setListaDeMensagens([...mensagem]);
+                    });
+                }}
+              />
             </Box>
             {/* {mensagem.texto.starsWith(":stiker:").toString()} */}
             {mensagem.texto.startsWith(":sticker:") ? (
