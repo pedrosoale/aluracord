@@ -200,120 +200,120 @@ export default function ChatPage() {
       </Box>
     </Box>
   );
-}
-
-function Header() {
-  return (
-    <>
+  function Header() {
+    return (
+      <>
+        <Box
+          styleSheet={{
+            width: "100%",
+            marginBottom: "16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text variant="heading5">Chat</Text>
+          <Button
+            variant="tertiary"
+            colorVariant="neutral"
+            label="Logout"
+            href="/"
+          />
+        </Box>
+      </>
+    );
+  }
+  
+  function MessageList(props) {
+    //console.log(props);
+    return (
       <Box
+        tag="ul"
         styleSheet={{
-          width: "100%",
-          marginBottom: "16px",
+          overflow: "scroll",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          flexDirection: "column-reverse",
+          flex: 1,
+          color: appConfig.theme.colors.neutrals["000"],
+          marginBottom: "16px",
         }}
       >
-        <Text variant="heading5">Chat</Text>
-        <Button
-          variant="tertiary"
-          colorVariant="neutral"
-          label="Logout"
-          href="/"
-        />
-      </Box>
-    </>
-  );
-}
-
-function MessageList(props) {
-  //console.log(props);
-  return (
-    <Box
-      tag="ul"
-      styleSheet={{
-        overflow: "scroll",
-        display: "flex",
-        flexDirection: "column-reverse",
-        flex: 1,
-        color: appConfig.theme.colors.neutrals["000"],
-        marginBottom: "16px",
-      }}
-    >
-      {props.mensagens.map((mensagem) => {
-        return (
-          <Text
-            key={mensagem.id}
-            tag="li"
-            styleSheet={{
-              borderRadius: "5px",
-              padding: "6px",
-              marginBottom: "12px",
-              hover: {
-                backgroundColor: appConfig.theme.colors.neutrals[700],
-              },
-            }}
-          >
-            <Box
+        {props.mensagens.map((mensagem) => {
+          return (
+            <Text
+              key={mensagem.id}
+              tag="li"
               styleSheet={{
-                marginBottom: "8px",
+                borderRadius: "5px",
+                padding: "6px",
+                marginBottom: "12px",
+                hover: {
+                  backgroundColor: appConfig.theme.colors.neutrals[700],
+                },
               }}
             >
-              <Image
+              <Box
                 styleSheet={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  display: "inline-block",
-                  marginRight: "8px",
+                  marginBottom: "8px",
                 }}
-                src={`https://github.com/${mensagem.de}.png`}
-              />
-              <Text tag="strong">{mensagem.de}</Text>
-              <Text
-                styleSheet={{
-                  fontSize: "10px",
-                  marginLeft: "8px",
-                  color: appConfig.theme.colors.neutrals[300],
-                }}
-                tag="span"
               >
-                {new Date().toLocaleDateString()}
-              </Text>
-
-              <Button
-                size="xs"
-                variant="tertiary"
-                label="X"
-                buttonColors={{
-                  contrastColor: appConfig.theme.colors.neutrals["000"],
-                  mainColor: appConfig.theme.colors.primary[500],
-                  mainColorLight: appConfig.theme.colors.primary[400],
-                  mainColorStrong: appConfig.theme.colors.primary[600],
-                }}
-                onClick={() => {
-                  console.log({ mensagem });
-                  supabaseClient
-                    .from("mensagens")
-                    .delete()
-                    .match({ id: mensagem.id })
-                    .then(() => {
-                      const index = listaDeMensagens.indexOf(mensagem);
-                      listaDeMensagens.splice(index, 1);
-                      setListaDeMensagens([...mensagem]);
-                    });
-                }}
-              />
-            </Box>
-            {/* {mensagem.texto.starsWith(":stiker:").toString()} */}
-            {mensagem.texto.startsWith(":sticker:") ? (
-              <Image src={mensagem.texto.replace(":sticker:", "")} />
-            ) : (
-              mensagem.texto
-            )}
-          </Text>
-        );
-      })}
-    </Box>
-  );
+                <Image
+                  styleSheet={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    display: "inline-block",
+                    marginRight: "8px",
+                  }}
+                  src={`https://github.com/${mensagem.de}.png`}
+                />
+                <Text tag="strong">{mensagem.de}</Text>
+                <Text
+                  styleSheet={{
+                    fontSize: "10px",
+                    marginLeft: "8px",
+                    color: appConfig.theme.colors.neutrals[300],
+                  }}
+                  tag="span"
+                >
+                  {new Date().toLocaleDateString()}
+                </Text>
+  
+                <Button
+                  size="xs"
+                  variant="tertiary"
+                  label="X"
+                  buttonColors={{
+                    contrastColor: appConfig.theme.colors.neutrals["000"],
+                    mainColor: appConfig.theme.colors.primary[500],
+                    mainColorLight: appConfig.theme.colors.primary[400],
+                    mainColorStrong: appConfig.theme.colors.primary[600],
+                  }}
+                  onClick={() => {
+                    console.log({ mensagem });
+                    supabaseClient
+                      .from("mensagens")
+                      .delete()
+                      .match({ id: mensagem.id })
+                      .then(() => {
+                        const index = listaDeMensagens.indexOf(mensagem);
+                        listaDeMensagens.splice(index, 1);
+                        setListaDeMensagens([...listaDeMensagens]);
+                      });
+                  }}
+                />
+              </Box>
+              {/* {mensagem.texto.starsWith(":stiker:").toString()} */}
+              {mensagem.texto.startsWith(":sticker:") ? (
+                <Image src={mensagem.texto.replace(":sticker:", "")} />
+              ) : (
+                mensagem.texto
+              )}
+            </Text>
+          );
+        })}
+      </Box>
+    );
+  }
 }
+
